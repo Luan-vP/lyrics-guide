@@ -11,6 +11,7 @@ if (!page.value) {
 </script>
 
 <template>
+  <h1>Fuck Off!!!</h1>
   <MDCRenderer
     v-if="page"
     :value="page"
