@@ -1,9 +1,8 @@
 ---
-title: "n' Rijser's Wet"
+title: "n' Rijsers Wet"
+slug: "n-rijsers-wet"
 description: "A story about movement and rhythm, inspired by a notebook my Grandfather once owned"
 ---
-
-# n' Rijser's Wet
 
 Deur die bosse en berge stap die tyd aan.
 

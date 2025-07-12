@@ -1,9 +1,8 @@
 ---
-title: "spherical-karens-in-a-vacuum"
+title: "Spherical Karens in a Vacuum"
+slug: "spherical-karens-in-a-vacuum"
 description: "A meditation on emotional detachment versus authentic connection, exploring the balance between protection and vulnerability."
 ---
-
-# Spherical Karens in a Vacuum
 
 Callous apathy faces tragedy better than a tether to a justly, mustly, moral weather.
 

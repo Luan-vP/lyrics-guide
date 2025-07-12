@@ -1,0 +1,192 @@
+// Poem-specific styles
+.poem-container {
+  @include container;
+  max-width: 800px;
+  padding-top: $spacing-3xl;
+  padding-bottom: $spacing-3xl;
+}
+
+.poem-header {
+  text-align: center;
+  margin-bottom: $spacing-3xl;
+  
+  .poem-title {
+    font-size: 3.5rem;
+    font-family: $font-serif;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    margin-bottom: $spacing-md;
+    background: linear-gradient(135deg, $primary-color, $secondary-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    
+    @media (max-width: $breakpoint-md) {
+      font-size: 2.5rem;
+    }
+  }
+  
+  .poem-description {
+    font-size: 1.2rem;
+    color: $text-light;
+    font-style: italic;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+}
+
+.poem-content {
+  @include card;
+  padding: $spacing-3xl;
+  font-family: $font-serif;
+  font-size: 1.1rem;
+  line-height: 2;
+  
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl;
+    font-size: 1rem;
+  }
+  
+  // Poetry-specific formatting
+  p {
+    margin-bottom: $spacing-lg;
+    text-align: left;
+  }
+  
+  // Handle line breaks in poetry
+  br {
+    line-height: 2.5;
+  }
+  
+  // Style for emphasized text
+  em, i {
+    font-style: italic;
+    color: $accent-color;
+    font-weight: 500;
+  }
+  
+  // Style for strong text
+  strong, b {
+    font-weight: 700;
+    color: $primary-color;
+  }
+  
+  // Poetry line styling
+  .poem-line {
+    display: block;
+    margin-bottom: $spacing-sm;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  // Stanza breaks (represented by hr or multiple br tags)
+  hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, $border-color, transparent);
+    margin: $spacing-2xl 0;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  // Special styling for dashes or separators in poems
+  p:has-text("-----") {
+    text-align: center;
+    color: $text-light;
+    font-size: 1.5rem;
+    letter-spacing: 0.5em;
+    margin: $spacing-2xl 0;
+  }
+}
+
+// Navigation for poems
+.poem-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: $spacing-3xl;
+  padding-top: $spacing-xl;
+  border-top: 1px solid $border-color;
+  
+  .nav-link {
+    @include button-primary;
+    
+    &.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      
+      &:hover {
+        transform: none;
+        box-shadow: none;
+      }
+    }
+  }
+  
+  .home-link {
+    background: linear-gradient(135deg, $accent-color, darken($accent-color, 10%));
+    
+    &:hover {
+      background: linear-gradient(135deg, darken($accent-color, 5%), darken($accent-color, 15%));
+      box-shadow: 0 4px 12px rgba($accent-color, 0.4);
+    }
+  }
+}
+
+// Poem list styles (for index pages)
+.poem-list {
+  @include container;
+  max-width: 1000px;
+  padding-top: $spacing-2xl;
+  
+  .poem-card {
+    @include card;
+    padding: $spacing-xl;
+    margin-bottom: $spacing-xl;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    .poem-card-title {
+      font-size: 1.8rem;
+      margin-bottom: $spacing-sm;
+      
+      a {
+        color: $primary-color;
+        text-decoration: none;
+        
+        &:hover {
+          color: $secondary-color;
+        }
+      }
+    }
+    
+    .poem-card-description {
+      color: $text-light;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: $spacing-md;
+    }
+    
+    .poem-card-excerpt {
+      font-family: $font-serif;
+      font-style: italic;
+      color: $text-color;
+      border-left: 4px solid $secondary-color;
+      padding-left: $spacing-md;
+      margin: $spacing-md 0;
+    }
+    
+    .read-more {
+      @include button-primary;
+      font-size: 0.9rem;
+      padding: $spacing-xs $spacing-md;
+    }
+  }
+}

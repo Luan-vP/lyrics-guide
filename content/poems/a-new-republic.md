@@ -1,9 +1,8 @@
 ---
-title: "a-new-republic"
+title: "A New Republic"
+slug: "a-new-republic"
 description: "A call for unity through authenticity and self-expression, building a palace of uniqueness bound by common threads."
 ---
-
-# A New Republic
 
 Honoured cousins,
 
