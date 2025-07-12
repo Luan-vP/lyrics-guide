@@ -12,12 +12,12 @@ export default defineNuxtConfig({
       }
     },
   },
-  ssr: true,
-  nitro: {
-    prerender: {
-      routes: ['/poems/a-new-republic', '/poems/spherical-karens-in-a-vacuum', '/poems/n-rijsers-vet']
-    }
-  },
+  // ssr: true,
+  // nitro: {
+  //   prerender: {
+  //     routes: ['/poems/a-new-republic', '/poems/spherical-karens-in-a-vacuum', '/poems/n-rijsers-vet']
+  //   }
+  // },
   devtools: { enabled: true },
   future: {
     compatibilityVersion: 4,

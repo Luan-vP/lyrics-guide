@@ -1,32 +1,32 @@
-# Build stage
-FROM node:20-alpine AS builder
+# Build Stage 1
 
-# Set working directory
+FROM node:22-alpine AS build
 WORKDIR /app
 
-# Copy package files
-COPY package*.json ./
+# Copy package.json and your lockfile
+COPY package.json package-lock.json ./
 
 # Install dependencies
-RUN npm ci --only=production
+RUN npm ci
 
-# Copy source code
-COPY . .
+# Copy the entire project
+COPY . ./
 
-# Build the application
-RUN npm run generate
+# Build the project
+RUN npm run build
 
-# Production stage
-FROM nginx:alpine
+# Build Stage 2
 
-# Copy the built application from builder stage
-COPY --from=builder /app/.output/public /usr/share/nginx/html
+FROM node:22-alpine
+WORKDIR /app
 
-# Copy nginx configuration
-COPY nginx.conf /etc/nginx/nginx.conf
+# Only `.output` folder is needed from the build stage
+COPY --from=build /app/.output/ ./
 
-# Expose port 80
+# Change the port and host
+ENV PORT=80
+ENV HOST=0.0.0.0
+
 EXPOSE 80
 
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["node", "/app/server/index.mjs"]
