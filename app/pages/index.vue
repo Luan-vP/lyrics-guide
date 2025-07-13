@@ -6,33 +6,49 @@ const { data: page } = await useAsyncData('index', () => {
 
 // Get all poems dynamically
 const { data: poems } = await useAsyncData('poems', async () => {
-  // Create poems with explicit paths since the query isn't returning _path
-  const poemData = [
-    {
-      path: '/poems/spherical-karens-in-a-vacuum',
-      query: () => queryCollection('content').path('/poems/spherical-karens-in-a-vacuum').first()
-    },
-    {
-      path: '/poems/a-new-republic',
-      query: () => queryCollection('content').path('/poems/a-new-republic').first()
-    },
-    {
-      path: '/poems/n-rijsers-wet',
-      query: () => queryCollection('content').path('/poems/n-rijsers-wet').first()
-    }
-  ]
-  
-  const poemPromises = poemData.map(async ({ path, query }) => {
-    const poem = await query()
-    if (poem) {
-      // Ensure the path is set correctly
-      return { ...poem, _path: path }
-    }
-    return null
-  })
-  
-  const resolvedPoems = await Promise.all(poemPromises)
-  return resolvedPoems.filter(poem => poem !== null)
+  try {
+    // Get poem slugs from our API
+    const poemSlugs = await $fetch('/api/poems-list') as Array<{slug: string, _path: string}>
+    console.log('Found poem slugs:', poemSlugs)
+    
+    // Query each poem's content
+    const poemPromises = poemSlugs.map(async ({ slug, _path }: {slug: string, _path: string}) => {
+      try {
+        const poem = await queryCollection('content').path(_path).first()
+        if (poem) {
+          return { ...poem, _path }
+        }
+        return null
+      } catch (error) {
+        console.error(`Error loading poem ${slug}:`, error)
+        return null
+      }
+    })
+    
+    const resolvedPoems = await Promise.all(poemPromises)
+    return resolvedPoems.filter((poem: any) => poem !== null)
+  } catch (error) {
+    console.error('Auto-discovery failed, falling back to manual list:', error)
+    
+    // Fallback to manual approach
+    const poemSlugs = ['spherical-karens-in-a-vacuum', 'a-new-republic', 'n-rijsers-wet']
+    
+    const poemPromises = poemSlugs.map(async (slug: string) => {
+      try {
+        const poem = await queryCollection('content').path(`/poems/${slug}`).first()
+        if (poem) {
+          return { ...poem, _path: `/poems/${slug}` }
+        }
+        return null
+      } catch (error) {
+        console.error(`Error loading poem ${slug}:`, error)
+        return null
+      }
+    })
+    
+    const resolvedPoems = await Promise.all(poemPromises)
+    return resolvedPoems.filter((poem: any) => poem !== null)
+  }
 })
 
 // SEO
