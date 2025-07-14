@@ -8,7 +8,8 @@ export default defineNuxtConfig({
     headers: {
       contentSecurityPolicy: {
         "default-src": "'self'",
-        "script-src": "'self' http: https: data: blob: 'unsafe-inline' 'unsafe-eval'"
+        "script-src": "'self' http: https: data: blob: 'unsafe-inline' 'unsafe-eval'",
+        "frame-src": "'self' https://strudel.cc"
       }
     },
   },
