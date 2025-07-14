@@ -13,7 +13,11 @@ export default defineNuxtConfig({
         "media-src": "'self' https://raw.githubusercontent.com",
         "connect-src": "'self' https://raw.githubusercontent.com",
         "img-src": "'self' data: https:"
-      }
+      },
+      // Disable problematic headers for HTTP deployment
+      crossOriginOpenerPolicy: process.env.NODE_ENV === 'production' ? 'same-origin' : false,
+      crossOriginResourcePolicy: 'cross-origin',
+      crossOriginEmbedderPolicy: process.env.NODE_ENV === 'production' ? 'require-corp' : false
     },
   },
   devtools: { enabled: true },
