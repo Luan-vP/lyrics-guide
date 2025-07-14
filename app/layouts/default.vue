@@ -25,16 +25,17 @@
     </footer>
 
     <!-- Persistent Strudel Overlay -->
-    <div v-if="strudelVisible" class="strudel-overlay">
-      <div class="strudel-container">
+    <div v-if="strudelVisible" class="strudel-dropdown">
+      <div class="strudel-header">
+        <span class="strudel-title">Music</span>
         <button @click="toggleStrudel" class="strudel-close">×</button>
-        <iframe 
-          src="https://strudel.cc/#Ly8gImNvYXN0bGluZSIgQGJ5IGVkZHlmbHV4Ci8vIEB2ZXJzaW9uIDEuMApzYW1wbGVzKCdnaXRodWI6ZWRkeWZsdXgvY3JhdGUnKQpzZXRjcHMoLjc1KQpsZXQgY2hvcmRzID0gY2hvcmQoIjxCYm05IEZtNyBDbTk%2BLzQiKS5kaWN0KCdpcmVhbCcpCnN0YWNrKAogIHN0YWNrKCAvLyBEUlVNUwogICAgcygiYmQiKS5zdHJ1Y3QoIjxbeCo8MSAyPiBbfkAzIHhdXSB4PiIpLAogICAgcygifiBbcmltLCBzZDo8MiAzPl0iKS5yb29tKCI8MCAuMj4iKSwKICAgIG4oIlswIDwxIDM%2BXSo8MiEzIDQ%2BIikucygiaGgiKSwKICAgIHMoInJkOjwxITMgMj4qMiIpLm1hc2soIjwwIDAgMSAxPi8xNiIpLmdhaW4oLjUpCiAgKS5iYW5rKCdjcmF0ZScpCiAgLm1hc2soIjxbMCAxXSAxIDEgMT4vMTYiLmVhcmx5KC41KSkKICAsIC8vIENIT1JEUwogIGNob3Jkcy5vZmZzZXQoLTEpLnZvaWNpbmcoKS5zKCJnbV9lcGlhbm8xOjEiKQogIC5waGFzZXIoNCkucm9vbSguNSkKICAsIC8vIE1FTE9EWQogIG4oIjwwITMgMSoyPiIpLnNldChjaG9yZHMpLm1vZGUoInJvb3Q6ZzIiKQogIC52b2ljaW5nKCkucygiZ21fYWNvdXN0aWNfYmFzcyIpLAogIGNob3Jkcy5uKCJbMCA8NCAzIDwyIDU%2BPioyXSg8MyA1Piw4KSIpCiAgLmFuY2hvcigiRDUiKS52b2ljaW5nKCkKICAuc2VnbWVudCg0KS5jbGlwKHJhbmQucmFuZ2UoLjQsLjgpKQogIC5yb29tKC43NSkuc2hhcGUoLjMpLmRlbGF5KC4yNSkKICAuZm0oc2luZS5yYW5nZSgzLDgpLnNsb3coOCkpCiAgLmxwZihzaW5lLnJhbmdlKDUwMCwxMDAwKS5zbG93KDgpKS5scHEoNSkKICAucmFyZWx5KHBseSgiMiIpKS5jaHVuayg0LCBmYXN0KDIpKQogIC5nYWluKHBlcmxpbi5yYW5nZSguNiwgLjkpKQogIC5tYXNrKCI8MCAxIDEgMD4vMTYiKQopCi5sYXRlKCJbMCAuMDFdKjQiKS5sYXRlKCJbMCAuMDFdKjIiKS5zaXplKDQp"
-          width="100%"
-          height="400"
-          frameborder="0"
-        ></iframe>
       </div>
+      <iframe 
+        src="https://strudel.cc/#Ly8gImNvYXN0bGluZSIgQGJ5IGVkZHlmbHV4Ci8vIEB2ZXJzaW9uIDEuMApzYW1wbGVzKCdnaXRodWI6ZWRkeWZsdXgvY3JhdGUnKQpzZXRjcHMoLjc1KQpsZXQgY2hvcmRzID0gY2hvcmQoIjxCYm05IEZtNyBDbTk%2BLzQiKS5kaWN0KCdpcmVhbCcpCnN0YWNrKAogIHN0YWNrKCAvLyBEUlVNUwogICAgcygiYmQiKS5zdHJ1Y3QoIjxbeCo8MSAyPiBbfkAzIHhdXSB4PiIpLAogICAgcygifiBbcmltLCBzZDo8MiAzPl0iKS5yb29tKCI8MCAuMj4iKSwKICAgIG4oIlswIDwxIDM%2BXSo8MiEzIDQ%2BIikucygiaGgiKSwKICAgIHMoInJkOjwxITMgMj4qMiIpLm1hc2soIjwwIDAgMSAxPi8xNiIpLmdhaW4oLjUpCiAgKS5iYW5rKCdjcmF0ZScpCiAgLm1hc2soIjxbMCAxXSAxIDEgMT4vMTYiLmVhcmx5KC41KSkKICAsIC8vIENIT1JEUwogIGNob3Jkcy5vZmZzZXQoLTEpLnZvaWNpbmcoKS5zKCJnbV9lcGlhbm8xOjEiKQogIC5waGFzZXIoNCkucm9vbSguNSkKICAsIC8vIE1FTE9EWQogIG4oIjwwITMgMSoyPiIpLnNldChjaG9yZHMpLm1vZGUoInJvb3Q6ZzIiKQogIC52b2ljaW5nKCkucygiZ21fYWNvdXN0aWNfYmFzcyIpLAogIGNob3Jkcy5uKCJbMCA8NCAzIDwyIDU%2BPioyXSg8MyA1Piw4KSIpCiAgLmFuY2hvcigiRDUiKS52b2ljaW5nKCkKICAuc2VnbWVudCg0KS5jbGlwKHJhbmQucmFuZ2UoLjQsLjgpKQogIC5yb29tKC43NSkuc2hhcGUoLjMpLmRlbGF5KC4yNSkKICAuZm0oc2luZS5yYW5nZSgzLDgpLnNsb3coOCkpCiAgLmxwZihzaW5lLnJhbmdlKDUwMCwxMDAwKS5zbG93KDgpKS5scHEoNSkKICAucmFyZWx5KHBseSgiMiIpKS5jaHVuayg0LCBmYXN0KDIpKQogIC5nYWluKHBlcmxpbi5yYW5nZSguNiwgLjkpKQogIC5tYXNrKCI8MCAxIDEgMD4vMTYiKQopCi5sYXRlKCJbMCAuMDFdKjQiKS5sYXRlKCJbMCAuMDFdKjIiKS5zaXplKDQp"
+        width="100%"
+        height="300"
+        frameborder="0"
+      ></iframe>
     </div>
   </div>
 </template>
@@ -124,61 +125,66 @@ const toggleStrudel = () => {
   }
 }
 
-// Strudel overlay styles
-.strudel-overlay {
+// Strudel dropdown styles
+.strudel-dropdown {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: $spacing-lg;
-}
-
-.strudel-container {
+  top: 70px; // Just below the header
+  right: $spacing-lg;
+  width: 400px;
   background: $white;
   border-radius: 12px;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  width: 100%;
-  max-width: 900px;
-  max-height: 80vh;
-  position: relative;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
   overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  
+  @media (max-width: $breakpoint-md) {
+    width: calc(100vw - #{$spacing-lg * 2});
+    right: $spacing-lg;
+    left: $spacing-lg;
+  }
   
   iframe {
     width: 100%;
-    height: 500px;
+    height: 300px;
     border: none;
-    border-radius: 0 0 12px 12px;
+    display: block;
   }
 }
 
-.strudel-close {
-  position: absolute;
-  top: $spacing-sm;
-  right: $spacing-sm;
-  background: $accent-color;
-  color: $white;
-  border: none;
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
+.strudel-header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
+  padding: $spacing-sm $spacing-md;
+  background: lighten($border-color, 2%);
+  border-bottom: 1px solid $border-color;
+}
+
+.strudel-title {
+  font-weight: 600;
+  color: $text-color;
+  font-size: 0.9rem;
+}
+
+.strudel-close {
+  background: none;
+  border: none;
+  color: $text-light;
   cursor: pointer;
   font-size: 18px;
   font-weight: bold;
-  z-index: 1001;
-  transition: all 0.3s ease;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.2s ease;
   
   &:hover {
-    background: darken($accent-color, 10%);
-    transform: scale(1.1);
+    background: rgba(0, 0, 0, 0.1);
+    color: $text-color;
   }
 }
 
