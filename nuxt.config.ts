@@ -9,16 +9,13 @@ export default defineNuxtConfig({
       contentSecurityPolicy: {
         "default-src": "'self'",
         "script-src": "'self' http: https: data: blob: 'unsafe-inline' 'unsafe-eval'",
-        "frame-src": "'self' https://strudel.cc"
+        "frame-src": "'self' https://strudel.cc",
+        "media-src": "'self' https://raw.githubusercontent.com",
+        "connect-src": "'self' https://raw.githubusercontent.com",
+        "img-src": "'self' data: https:"
       }
     },
   },
-  // ssr: true,
-  // nitro: {
-  //   prerender: {
-  //     routes: ['/poems/a-new-republic', '/poems/spherical-karens-in-a-vacuum', '/poems/n-rijsers-vet']
-  //   }
-  // },
   devtools: { enabled: true },
   future: {
     compatibilityVersion: 4,
