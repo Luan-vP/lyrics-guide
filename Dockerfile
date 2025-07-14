@@ -22,6 +22,7 @@ WORKDIR /app
 
 # Only `.output` folder is needed from the build stage
 COPY --from=build /app/.output/ ./
+COPY ./content ./content
 
 # Change the port and host
 ENV PORT=80

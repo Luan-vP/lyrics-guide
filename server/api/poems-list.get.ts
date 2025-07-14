@@ -3,7 +3,7 @@ import { join } from 'path';
 
 export default defineEventHandler(async (event) => {
   try {
-    const poemsDir = join(process.cwd(), 'content', 'poems');
+    const poemsDir = join('content', 'poems');
     const files = await readdir(poemsDir);
     
     const poemSlugs = files
