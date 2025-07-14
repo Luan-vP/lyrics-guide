@@ -83,10 +83,6 @@ useSeoMeta({
               <NuxtLink :to="poem._path" @click="console.log('Clicking:', poem._path)">
                 {{ poem.title }}
               </NuxtLink>
-              <!-- Debug info -->
-              <small style="display: block; color: #999; font-size: 0.8em;">
-                Path: {{ poem._path }} | Title: {{ poem.title }}
-              </small>
             </h3>
             
             <p v-if="poem.description" class="poem-card-description">
