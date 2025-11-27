@@ -1,23 +1,23 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: ['@nuxt/content', '@nuxt/ui', 'floating-vue/nuxt', 'nuxt-security'],
-  // content: {
-  //   documentDriven: true
-  // },
   security: {
     headers: {
       contentSecurityPolicy: {
         "default-src": "'self'",
-        "script-src": "'self' http: https: data: blob: 'unsafe-inline' 'unsafe-eval'",
+        "script-src": "'self' 'unsafe-eval' 'unsafe-inline' https://strudel.cc https://cdn.jsdelivr.net https://unpkg.com data: blob:",
         "frame-src": "'self' https://strudel.cc",
-        "media-src": "'self' https://raw.githubusercontent.com",
-        "connect-src": "'self' https://raw.githubusercontent.com",
-        "img-src": "'self' data: https:"
+        "media-src": "'self' https://raw.githubusercontent.com https://strudel.cc",
+        "connect-src": "'self' https://raw.githubusercontent.com https://strudel.cc https://cdn.jsdelivr.net",
+        "img-src": "'self' data: https: blob:",
+        "style-src": "'self' 'unsafe-inline' https://strudel.cc https://cdn.jsdelivr.net",
+        "font-src": "'self' data: https:",
+        "worker-src": "'self' blob:"
       },
-      // Disable problematic headers for HTTP deployment
-      crossOriginOpenerPolicy: process.env.NODE_ENV === 'production' ? 'same-origin' : false,
-      crossOriginResourcePolicy: 'cross-origin',
-      crossOriginEmbedderPolicy: process.env.NODE_ENV === 'production' ? 'require-corp' : false
+      // Use credentialless instead of require-corp for better iframe compatibility
+      crossOriginEmbedderPolicy: 'credentialless',
+      crossOriginOpenerPolicy: 'same-origin-allow-popups',
+      crossOriginResourcePolicy: 'cross-origin'
     },
   },
   devtools: { enabled: true },
