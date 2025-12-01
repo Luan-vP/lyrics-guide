@@ -14,7 +14,7 @@ Daar is 'n waarheid in die stilte wat my ewe nader roep,
 
 Waar die water, koel en kalm, my van binne af skoonwas.
 
-Soos my stories sagies wegsmelt,
+Soos my stories saggies wegsmelt,
 
 En die wêreld deur my skyn,
 
